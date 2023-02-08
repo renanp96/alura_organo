@@ -1,25 +1,45 @@
+import { useState } from 'react';
 import Button from '../Button';
 import DropBox from '../DropBox';
 import InputText from '../InputText';
 import './Form.css';
 
-export const Form = ()=> {
+export const Form = () => {
 
     const classes = ['Archer', 'Assassin', 'Avenger', 'Berserker', 'Caster', 'Lancer', 'Rider', 'Ruler', 'Saber']
+    const [classe, setClasses] = useState('');
+    const [name, setName] = useState('');
+    const [title, setTitle] = useState('');
+    const [img, setImg] = useState('');
 
     const onSave = (event) => {
         event.preventDefault();
-        console.log("Form submetido");
     }
 
-    return(
+    return (
         <section className="form">
             <form onSubmit={onSave}>
                 <h2>Preencha os dados para criar o card dos servos</h2>
-                <InputText required={true} label="Nome" placeholder="Digite o nome..." />
-                <InputText required={true} label="Titulo" placeholder="Digite o titulo..." />
-                <InputText label="Imagem" placeholder="Digite o endereço da imagem..." />
-                <DropBox required={true} label="Classe" itens={classes}/>
+                <InputText required={true}
+                    label="Nome"
+                    placeholder="Digite o nome..."
+                    value={name}
+                    onChange={value => setName(value)} />
+                <InputText required={true}
+                    label="Titulo"
+                    placeholder="Digite o titulo..."
+                    value={title}
+                    onChange={value => setTitle(value)} />
+                <InputText label="Imagem"
+                    placeholder="Digite o endereço da imagem..."
+                    value={img}
+                    onChange={value => setImg(value)} />
+                <DropBox required={true} 
+                label="Classe" 
+                itens={classes} 
+                value={classe}
+                onChange={value => setClasses(value)}
+                />
                 <Button>Criar Card</Button>
             </form>
         </section>
