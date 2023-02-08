@@ -4,9 +4,10 @@ import DropBox from '../DropBox';
 import InputText from '../InputText';
 import './Form.css';
 
-export const Form = () => {
+export const Form = (props) => {
 
-    const classes = ['Archer', 'Assassin', 'Avenger', 'Berserker', 'Caster', 'Lancer', 'Rider', 'Ruler', 'Saber']
+    const classes = ['Archer', 'Assassin', 'Avenger', 'Berserker', 'Caster', 'Lancer', 'Rider', 'Ruler', 'Saber'];
+
     const [classe, setClasses] = useState('');
     const [name, setName] = useState('');
     const [title, setTitle] = useState('');
@@ -14,6 +15,7 @@ export const Form = () => {
 
     const onSave = (event) => {
         event.preventDefault();
+        props.onSubmitServ({name, title, img, classe});
     }
 
     return (
