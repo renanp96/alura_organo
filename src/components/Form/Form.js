@@ -6,7 +6,16 @@ import './Form.css';
 
 export const Form = (props) => {
 
-    const classes = ['Archer', 'Assassin', 'Avenger', 'Berserker', 'Caster', 'Lancer', 'Rider', 'Ruler', 'Saber'];
+    const classes = [
+        'Archer',
+        'Assassin',
+        'Avenger',
+        'Berserker',
+        'Caster',
+        'Lancer',
+        'Rider',
+        'Ruler',
+        'Saber'];
 
     const [classe, setClasses] = useState('');
     const [name, setName] = useState('');
