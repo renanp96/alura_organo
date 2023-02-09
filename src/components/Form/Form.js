@@ -5,18 +5,6 @@ import InputText from '../InputText';
 import './Form.css';
 
 export const Form = (props) => {
-
-    const classes = [
-        'Archer',
-        'Assassin',
-        'Avenger',
-        'Berserker',
-        'Caster',
-        'Lancer',
-        'Rider',
-        'Ruler',
-        'Saber'];
-
     const [classe, setClasses] = useState('');
     const [name, setName] = useState('');
     const [title, setTitle] = useState('');
@@ -24,7 +12,7 @@ export const Form = (props) => {
 
     const onSave = (event) => {
         event.preventDefault();
-        props.onSubmitServ({name, title, img, classe});
+        props.onSubmitServ({ name, title, img, classe });
     }
 
     return (
@@ -45,11 +33,11 @@ export const Form = (props) => {
                     placeholder="Digite o endereço da imagem..."
                     value={img}
                     onChange={value => setImg(value)} />
-                <DropBox required={true} 
-                label="Classe" 
-                itens={classes} 
-                value={classe}
-                onChange={value => setClasses(value)}
+                <DropBox required={true}
+                    label="Classe"
+                    itens={props.classes}
+                    value={classe}
+                    onChange={value => setClasses(value)}
                 />
                 <Button>Criar Card</Button>
             </form>

@@ -61,9 +61,9 @@ function App() {
 
     return (
         <div className="App">
-            <Banner/>
-            <Form onSubmitServ={servant => onAddServ(servant)} />
-            {classes.map(classe => <Category key={classe.name} name={classe.name} primaryColor={classe.primaryColor} secondaryColor={classe.secondaryColor}/>)}
+            <Banner />
+            <Form classes={classes.map(classe => classe.name)} onSubmitServ={servant => onAddServ(servant)} />
+            {classes.map(classe => <Category key={classe.name} name={classe.name} primaryColor={classe.primaryColor} secondaryColor={classe.secondaryColor} />)}
         </div>
     );
 }
